@@ -32,7 +32,7 @@ jobs:
           bash build-preview.sh 01-phase-1-composition/01-what-exactly-triggers-recomposition.md
 
       - name: Upload Chapter Preview PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: compose-chapter-preview
           path: book/output/preview.pdf
@@ -42,7 +42,7 @@ jobs:
         run: bash build.sh
 
       - name: Upload Book Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: compose-book
           path: |
