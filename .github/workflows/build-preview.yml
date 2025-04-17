@@ -1,4 +1,4 @@
-name: Build Book
+name: Build Preview
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: Build Chapter Preview
         run: |
           mkdir -p output
-          bash build-preview.sh 01-phase-1-composition/01-what-exactly-triggers-recomposition.md
+          bash build.sh --preview
 
       - name: Upload Chapter Preview PDF
         uses: actions/upload-artifact@v4
@@ -44,5 +44,5 @@ jobs:
         with:
           name: compose-book
           path: |
-            output/the-three-phases-of-compose.pdf
-            output/the-three-phases-of-compose.epub
+            output/the-three-phases-of-compose-preview.pdf
+            output/the-three-phases-of-compose-preview.epub
