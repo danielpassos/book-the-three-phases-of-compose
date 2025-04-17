@@ -25,7 +25,9 @@ jobs:
         run: chmod +x build.sh
 
       - name: Build Release
-        run: ./build.sh
+        run: |
+          mkdir -p output
+          bash build.sh
 
       - name: Release on GitHub
         uses: softprops/action-gh-release@v1
