@@ -1,0 +1,20 @@
+{
+  "name": "the-three-phases-of-compose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "bash build.sh",
+    "preview": "bash build-preview.sh 01-phase-1-composition/01-what-exactly-triggers-recomposition.md",
+    "chapters": "bash chapters.sh",
+    "lint:md": "markdownlint-cli2 '**/*.md' '#node_modules'",
+    "fix:md": "markdownlint-cli2 '**/*.md' '#node_modules' --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "markdownlint-cli2": "^0.17.2",
+    "markdownlint-cli2-formatter-pretty": "^0.0.7"
+  }
+}

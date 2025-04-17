@@ -1,0 +1,8 @@
+# IntelliJ project files
+.idea/
+*.iml
+
+# Project
+chapters.txt
+node_modules/
+output/
