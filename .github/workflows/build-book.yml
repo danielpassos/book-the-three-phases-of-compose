@@ -17,11 +17,9 @@ jobs:
         uses: docker://pandoc/latex:latest
 
       - name: Generate chapters.txt
-        working-directory: book
         run: bash chapters.sh
 
       - name: Build Chapter Preview
-        working-directory: book
         run: |
           mkdir -p output
           bash build-preview.sh 01-phase-1-composition/01-what-exactly-triggers-recomposition.md
@@ -33,7 +31,6 @@ jobs:
           path: book/output/preview.pdf
 
       - name: Build Full Book
-        working-directory: book
         run: bash build.sh
 
       - name: Upload Book Artifacts
