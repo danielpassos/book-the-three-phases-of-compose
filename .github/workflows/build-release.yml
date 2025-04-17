@@ -1,0 +1,37 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'  # Triggers only on tags like v1.0, v2.3 etc.
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Pandoc + LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            texlive-xetex texlive-fonts-recommended texlive-latex-extra \
+            fonts-firacode
+
+      - name: Make build.sh executable
+        run: chmod +x build.sh
+
+      - name: Build Release
+        run: ./build.sh
+
+      - name: Release on GitHub
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            output/the-three-phases-of-compose.pdf
+            output/the-three-phases-of-compose.epub
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

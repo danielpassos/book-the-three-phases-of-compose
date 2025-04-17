@@ -21,12 +21,15 @@ jobs:
             texlive-xetex texlive-fonts-recommended texlive-latex-extra \
             fonts-firacode
 
-      - name: Build Chapter Preview
+      - name: Make build.sh executable
+        run: chmod +x build.sh
+
+      - name: Build Preview
         run: |
           mkdir -p output
           bash build.sh --preview
 
-      - name: Upload Chapter Preview PDF
+      - name: Upload Preview
         uses: actions/upload-artifact@v4
         with:
           name: compose-book
