@@ -2,7 +2,7 @@ name: Build Book
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
@@ -13,8 +13,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Pandoc + LaTeX
-        uses: docker://pandoc/latex:latest
+      - name: Install Pandoc + LaTeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            pandoc \
+            texlive-xetex texlive-fonts-recommended texlive-latex-extra \
+            fonts-firacode
+
 
       - name: Generate chapters.txt
         run: bash chapters.sh
