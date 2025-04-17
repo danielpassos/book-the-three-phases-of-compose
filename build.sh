@@ -38,7 +38,7 @@ pandoc "${FILES[@]}" \
   --toc \
   --toc-depth=2 \
   -o "$PDF_OUTPUT" \
-  "$([[ $IS_PREVIEW == true ]] && echo '--metadata=preview:true')"
+  $([[ $IS_PREVIEW == true ]] && echo '--metadata=preview:true')
 
 # Build EPUB
 pandoc "${FILES[@]}" \
@@ -48,6 +48,6 @@ pandoc "${FILES[@]}" \
   --resource-path=.:assets/images \
   --epub-cover-image=assets/images/cover.png \
   -o "$EPUB_OUTPUT" \
-  "$([[ $IS_PREVIEW == true ]] && echo '--metadata=preview:true')"
+  $([[ $IS_PREVIEW == true ]] && echo '--metadata=preview:true')
 
 echo "✅ All formats generated successfully!"
