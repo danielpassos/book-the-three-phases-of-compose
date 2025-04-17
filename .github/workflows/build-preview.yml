@@ -21,25 +21,12 @@ jobs:
             texlive-xetex texlive-fonts-recommended texlive-latex-extra \
             fonts-firacode
 
-
-      - name: Generate chapters.txt
-        run: bash chapters.sh
-
       - name: Build Chapter Preview
         run: |
           mkdir -p output
           bash build.sh --preview
 
       - name: Upload Chapter Preview PDF
-        uses: actions/upload-artifact@v4
-        with:
-          name: compose-chapter-preview
-          path: output/preview.pdf
-
-      - name: Build Full Book
-        run: bash build.sh
-
-      - name: Upload Book Artifacts
         uses: actions/upload-artifact@v4
         with:
           name: compose-book
