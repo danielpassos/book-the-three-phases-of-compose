@@ -5,6 +5,9 @@ on:
     tags:
       - 'v*'  # Triggers only on tags like v1.0, v2.3 etc.
 
+permissions:
+  contents: write  # Needed for GitHub release permissions
+
 jobs:
   build:
     runs-on: ubuntu-latest
