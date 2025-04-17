@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: compose-chapter-preview
-          path: book/output/preview.pdf
+          path: output/preview.pdf
 
       - name: Build Full Book
         run: bash build.sh
@@ -44,5 +44,5 @@ jobs:
         with:
           name: compose-book
           path: |
-            book/output/the-three-phases-of-compose.pdf
-            book/output/the-three-phases-of-compose.epub
+            output/the-three-phases-of-compose.pdf
+            output/the-three-phases-of-compose.epub
